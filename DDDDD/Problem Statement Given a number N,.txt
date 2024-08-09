@@ -1,0 +1,39 @@
+Problem Statement: Given a number N, Your mission is to find the largest and the smallest digit of the number.
+
+Note:Print the largest and the smallest digit
+Example 1:
+
+INput:
+169
+output
+[9,1]
+
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enter the number"<<endl;
+    cin>>n;
+    string temp=to_string(n);
+    int max=temp[0]-'0';
+    for(int i=1;i<temp.size();i++)
+    {
+        int key=temp[i]-'0';
+        if(key>max)
+        max=key;
+    }
+    vector<int> v;
+    v.push_back(max);
+    int min=temp[0]-'0';
+    for(int i=1;i<temp.size();i++)
+    {
+        int key=temp[i]-'0';
+        if(key<min)
+        min=key;
+    }
+    v.push_back(min);
+    cout<<"["<<v[0]<<","<<v[1]<<"]";
+    return 0;
+}

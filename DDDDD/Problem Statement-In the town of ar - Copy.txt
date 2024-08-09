@@ -1,0 +1,44 @@
+Problem Statement-In the town of arrayville, there were two friends named Alice and Bob. Alice liked arranging numbers into lists, and Bob was good at finding patterns in there lists. One sunny day, Alice gave Bob two scrolls with lists of numbers. One was labeled arr1 and ther other arr2. She asked Bob to figure out if arr2 was hidden arr1 as a continuous group of numbers.
+Bob was curious about the challenge . he know that a "subarray " meant a sequence of numbers that appear one after another within a list. for example,[2,3,4] is a subarray of [1,2,3,4,5]
+
+Bob decided to write a special function called is_subarray(arr1,arr2) to help his solve this puzzle.
+
+Bob's task:
+Complete this -is_subarray(arr1,arr2) function would take two lists of numbers.
+
+CODE----------------------------------------->>>>>>>>>>>>>>>>
+
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+bool is_subarray(vector<int>&arr1, vector<int>&arr2)
+{
+    int end=arr2.size();
+    int st=0;
+    while(end<arr1.size())
+    {
+        vector<int>v;
+        for(int i=st;i<end;i++)
+        {
+            v.push_back(arr1[i]);
+        }
+        if(v==arr2)
+        return true;
+        else
+        {
+            st++;
+            end++;
+        }
+    }
+    return false;
+}
+int main()
+{
+    vector<int>arr1={5,8,9,12,3,7};
+    vector<int>arr2={9,12,3};
+     if(is_subarray(arr1,arr2))
+     cout<<"it is the subarray";
+     else
+     cout<<"it is not the subarray";
+    return 0;
+}

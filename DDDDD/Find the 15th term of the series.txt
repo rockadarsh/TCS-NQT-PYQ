@@ -1,0 +1,21 @@
+Find the 15th term of the series?
+0,0,7,6,14,12,21,18, 28
+
+CODE------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void odd(int n)
+{
+    int sum=7*n;
+    cout<<sum;
+}
+int main()
+{
+    int n;
+    cout<<"Enter the required terms"<<endl;
+    cin>>n;
+    if(n%2!=0)
+    odd(n/2);
+}

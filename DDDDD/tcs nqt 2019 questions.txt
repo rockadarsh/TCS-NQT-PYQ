@@ -1,0 +1,33 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int countpair(vector<int>&v,int target)
+{
+    int count=0;
+    for(int i=0;i<v.size();i++)
+    {
+        int key=target-v[i];
+        for(int j=i+1;j<v.size();j++)
+        {
+            if(v[j]==key)
+            count++;
+        }
+    }
+    return count;
+}
+int main()
+{
+    int n;
+    cout<<"enter the size of the array"<<endl;
+    cin>>n;
+    vector<int>v(n);
+    cout<<"Enter the elements in the array"<<endl;
+    for(int i=0;i<v.size();i++)
+    cin >> v[i];
+    int target;
+    cout<<"enter the target elements "<<endl;
+    cin>> target;
+     int ans=countpair(v,target);
+      cout<<"required count is  "<<ans;
+    return 0;
+}

@@ -1,0 +1,52 @@
+given size of an array list of array elements and we should print if the given elements in array is divisible by 3 then replace the element with "Three"" and if the element in the array is divisible by 5 then replace the element with "five" if the element divisible by 3 and 5 both then replace the elements with "ThreeFive" if the 
+element in the array is not satisfying the above 3 conditions then put element as it is and print the array 
+
+Example 1;
+Input:
+N=4
+[2,3,4,5]
+Output:2 Three 4 Five
+
+Example 2;
+Input:
+N=2
+[15,3]
+output:ThreeFive Three
+
+CODE------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>
+
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enter the size of the array"<<endl;
+    cin>>n;
+    vector<int>v(n);
+    vector<string>s;
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(v[i]%3==0 && v[i]%5==0)
+        s.push_back("ThreeFive");
+        else if(v[i]%3==0)
+        s.push_back("Three");
+        else if(v[i]%5==0)
+        s.push_back("Five");
+        else
+        {
+            int ans=v[i];
+         string temp=to_string(ans);
+         s.push_back(temp);
+        }
+    }
+    for(int i=0;i<s.size();i++)
+    {
+        cout<<s[i]<<" ";
+    }
+   return 0;
+}

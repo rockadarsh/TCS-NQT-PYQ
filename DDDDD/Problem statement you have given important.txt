@@ -1,0 +1,63 @@
+Problem statement: you have given two string s1 and s2, your mission is to check second string s2 is the part of first string s1 or not.
+
+NOTE: if s2 part of the s1 then return true otherwise return false
+
+Example 1:
+Input:
+s1="developer"
+s2="lope"
+output:true
+
+Example 2:
+Input:
+s1="developer"
+s2="del"
+output:false
+CODE------------------>>>>>>>>>>>.
+
+#include<iostream>
+#include <bits/stdc++.h>
+using namespace std;
+ bool checkpart(string &s1,string &s2)
+{
+    if(s2.size()>s1.size())
+        return false;
+    else
+    {
+        int  st=0;
+        int end=s2.size();
+        while(end<=s1.size())
+        {
+            string temp="";
+            for(int i=st;i<end;i++)
+            {
+             temp+=s1[i];
+            }
+            if(temp==s2)
+            return true;
+            else
+            {
+                st++;
+                end++;
+            }
+        }
+        return false;
+    }
+}
+int main() 
+{
+    string s1,s2;
+    cout<<"enter the characters in the string s1"<<endl;
+    cin>>s1;
+    cout<<"Enter the characters in the string s2"<<endl;
+    cin>>s2;
+    int ans=checkpart(s1,s2);
+    if(ans==1)
+    {
+        cout<<"true";
+    }
+    else
+    cout<<"false";
+    return 0;
+}
+

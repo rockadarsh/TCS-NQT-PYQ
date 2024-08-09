@@ -1,0 +1,49 @@
+Given two strings S1 and S2 of lowercase alphabets, find the list of uncommon characters for the two strings.
+
+A character is uncommon if it is present only in one of the strings i.e. it is either present in S1 or S2, but not in both.
+
+Note :
+1. Both the strings contain only lowercase alphabets and can contain duplicates.
+
+2. Return the uncommon characters in lexicographically sorted order. 
+
+CODE--------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s1,s2;
+    cout<<"Enter the charcters in the string s1"<<endl;
+    cin>>s1;
+    cout<<"Enter the characters in the string s2"<<endl;
+    cin>>s2;
+    unordered_set<char>s,st;
+    for(int i=0;i<s2.size();i++)
+    {
+        s.insert(s2[i]);
+    }
+    for(int i=0;i<s1.size();i++)
+    {
+        st.insert(s1[i]);
+    }
+    string ans="";
+    for(auto it=st.begin();it!=st.end();it++)
+    {
+        if(s.find(*it)==s.end())
+        ans.push_back(*it);
+    }
+    for(auto it=s.begin();it!=s.end();it++)
+    {
+        if(st.find(*it)==st.end())
+        ans.push_back(*it);
+    }
+    sort(ans.begin(),ans.end());
+    cout<<"Required uncommon sorted array is "<<endl;
+    for(int i=0;i<ans.size();i++)
+    {
+        cout<<ans[i];
+    }
+    return 0;
+}

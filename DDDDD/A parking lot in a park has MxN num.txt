@@ -1,0 +1,73 @@
+A parking lot in a park has MxN number of parking spaces. Each parking space will either be  empty(0) or full(1). The status (0/1) of a parking space is represented as the element of the matrix. The task is to find the row with have maximum number of cars parked in it.
+
+Note :
+
+MxN- Size of the matrix
+
+M is the number of row and N is number of columns
+Elements of the matrix M should be only 0 or 1.
+
+Input Format:
+
+1) The first line of input contains the value M the number of rows.
+
+2) The second line of input contains value N represents the number of columns.
+
+3) Next line contains a matrix with values 1 and 0
+
+Output Format:
+
+Print the Row which have maximum number of cars parked in it.
+
+Sample Input1:
+
+R=3
+
+L=4
+
+Matrix= 0   1   0   0
+
+                1  1   0    1
+
+                1   1  1     1
+
+Output : 3 Row 3 have maximum number of 1.
+
+CODE------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int m,n;
+    cout<<"Enter the number of rows"<<endl;
+    cin>>m;
+    cout<<"Enter the number of colums"<<endl;
+    cin>>n;
+    int M[m][n];
+    cout<<"Enter the elements only 0 and 1 in the array"<<endl;
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cin>>M[i][j];
+        }
+    }
+    int count=0,max=0;
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            if(M[i][j]==1)
+            count++;
+        }
+        if(count>max)
+        {
+            max=count;
+            count=0;
+        }
+    }
+    cout<<"required number of maximum car parking is:"<<max;
+    return 0;
+}

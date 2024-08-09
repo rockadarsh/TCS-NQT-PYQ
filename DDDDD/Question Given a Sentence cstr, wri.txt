@@ -1,0 +1,37 @@
+Question: Given a Sentence cstr, written in a camel case(i.e.every word starts with an uppercase letter and there is no space or punctuation between two consecutive words). The task is to put one space after every word and convert every uppercase letter to lowercase.
+Example 1:
+Input:
+ThisIsAnAutotmationEra
+Output:
+this is an automation era
+
+CODE-------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s1;
+    cout<<"enter the string"<<endl;
+    cin>>s1;
+    string temp;
+    if(s1[0]>='A'&& s1[0]<='Z')
+    temp+=s1[0];
+    for(int i=1;i<s1.size();i++)
+    {
+        if(s1[i]>='A'&& s1[i]<='Z')
+        {
+         temp+=' ';
+         temp+=s1[i];
+        }
+        else
+        temp+=s1[i];
+    }
+    transform(temp.begin(),temp.end(),temp.begin(),::tolower);
+    for(int i=0;i<temp.size();i++)
+    {
+        cout<<temp[i];
+    }
+    return 0;
+}

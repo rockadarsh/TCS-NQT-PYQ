@@ -1,0 +1,28 @@
+QUESTION: Write a program to accept a word and display the new word after removing all the repeated alphabets.
+Input:
+Word
+Output:
+Word without repeating elements
+Example:
+Input:applications
+output:aplictons
+
+CODE------------------------------>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s1;
+    cout<<"enter the string s1"<<endl;
+    cin>>s1;
+    string temp="";
+    for(int i=0;i<s1.size();i++)
+    {
+        if(temp.find(s1[i])==string::npos)
+        temp+=s1[i];
+    }
+    cout<<temp;
+    return 0;
+}

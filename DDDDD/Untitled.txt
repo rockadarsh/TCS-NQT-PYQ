@@ -1,0 +1,39 @@
+
+A car company has recorded its profit or loss for the next N days. The company wants to rearrange the order of these recorded values in such a way that the overall income is never equal to zero. The rearranged values should be either consistently positive or consistently negative for any contiguous duration of the N days, and they should be in non-decreasing or non-increasing order. If such a rearrangement is not possible, print "IMPOSSIBLE"; otherwise, print "POSSIBLE" along with the rearranged values for the N days. Input Format The first line contains an integer N, denoting the size of the class. The second line contains N integers a[i]. Output Format Print "IMPOSSIBLE" if such a rearrangement is not possible; otherwise, print "POSSIBLE" along with the rearranged values for the N days. Note: The output is case-sensitive.
+
+CODE----------------------------->>>>>>>>>>>>>>>>>>>>>>>
+
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enter the number of days"<<endl;
+    cin>>n;
+    vector<int>v(n);
+    cout<<"Enter the elements in the array:";
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    int sum=0;
+    for(int i=0;i<n;i++)
+    {
+        sum+=v[i];
+    }
+    if(sum>0)
+    {
+        cout<<"POSSIBLE"<<endl;
+        sort(v.begin(),v.end(),greater<int>());
+        for(int i=0;i<v.size();i++)
+        cout<<v[i]<<" ";
+    }
+    else
+    {
+        cout<<"IMPOSSIBLE"<<endl;
+        sort(v.begin(),v.end(),greater<int>());
+        for(int i=0;i<v.size();i++)
+        cout<<v[i]<<" ";
+    }
+}

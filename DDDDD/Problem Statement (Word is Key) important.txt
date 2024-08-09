@@ -1,0 +1,43 @@
+Problem Statement (Word is Key)
+One programming language has the following keywords that cannot be used as identifiers:
+
+break, case, continue, default, defer, else, for, func, goto, if, map, range, return, struct, type, var
+
+Write a program to find if the given word is a keyword or not
+
+Test cases
+Case 1
+Input – defer
+Expected Output – defer is a keyword
+
+CODE-------------------------------------->>>>>>>>>>>>>>>>>>>>>>
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    vector<string> st={"break","case","continue","default","defer","else","for","fun","goto","if","map","range","return","struct","type","var"};
+    cout<<"enter the size of the string"<<endl;
+    cin>>n;
+    vector<char>temp(n);
+    cout<<"enter the string"<<endl;
+    for(int i=0;i<temp.size();i++)
+    {
+        cin>>temp[i];
+    }
+    string str(temp.begin(),temp.end());
+    unordered_set<string>mp;
+    for(int i=0;i<st.size();i++)
+    {
+           mp.insert(st[i]);
+    }
+    if(mp.find(str)!=mp.end())
+    {
+       cout<<str<<" is a keyword"<<endl; 
+    }
+    else
+    cout<<str<<" is not a keyword";
+    return 0;
+}

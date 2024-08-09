@@ -1,0 +1,42 @@
+QUESTION: you have given two strings s1 and s2, your mission is  to calculate the sum of the character occurrence of the s2 string in string s1.
+
+Example 1:
+
+Input:
+s1="helloworld"
+s2="do"
+output:3
+
+Example 2:
+
+Input:
+s1="developer"
+s2="dev"
+output:5
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s1,s2;
+    cout<<"Enter the characters in the string s1:";
+    cin>>s1;
+    cout<<"Enter the characters in the string s2:";
+    cin>>s2;
+    unordered_map<char,int>mp;
+    for(int i=0;i<s1.size();i++)
+    {
+        mp[s1[i]]++;
+    }
+    int sum=0;
+    for(int i=0;i<s2.size();i++)
+    {
+        char key=s2[i];
+        if(mp.find(key)!=mp.end())
+        sum+=mp[key];
+    }
+    cout<<"requires sum of the chararcter in the s1 is:"<<sum;
+    return 0;
+}
+

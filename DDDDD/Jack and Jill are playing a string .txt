@@ -1,0 +1,43 @@
+Jack and Jill are playing a string game. Jack has given Jill two strings A and B. Jill has to derive a string C from A, by deleting elements from string A, such that string C does not contain any element of string B. Jill needs help to do this task. She wants a program to do this as she is lazy. Given strings A and B as input, give string C as Output.
+
+Example 1:
+
+Input:
+tiger     -> input string A
+ti          -> input string B
+Output:
+ger       -> Output string C
+Explanation:
+After removing “t” and “i” from “tiger”, we are left with “ger”.
+So, the answer is “ger”.
+
+CODE------------>>>>>>>>>>>>>>>>
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+void passstring(string A, string B)
+{
+    unordered_set<char> st;
+    for(int i=0;i<B.size();i++)
+    {
+        st.insert(B[i]);
+    }
+        string C;
+    for(int i=0;i<A.size();i++)
+    {
+       if(st.find(A[i])==st.end())
+       C.push_back(A[i]);
+    }
+    cout<<"required C string is:"<<C;
+}
+int main()
+{
+    string A,B;
+    cout<<"Enter the characters in the string A"<<endl;
+    cin>>A;
+    cout<<"Enter the chaarcter element is the string B"<<endl;
+    cin>>B;
+    passstring(A,B);
+    return 0;
+}

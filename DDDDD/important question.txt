@@ -1,0 +1,54 @@
+Given an array of integers where every element appears even number of times except one element which appears odd number of times, write a program to find that odd occurring element in O(log n) time. The equal elements must appear in pairs in the array but there cannot be more than two consecutive occurrences of an element. 
+
+CODE------------------------------------------------------------------>>>>>>>>>>>>
+
+
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+ int findoddelement(int arr[],int n)
+{
+    sort(arr,arr+n);
+    int low=0;
+    int high=n-1;
+    while(low<=high)
+    {
+        int mid=low+(high-low)/2;
+        if(low==high)
+         return arr[low];
+        if(mid%2==0)
+        {
+            if(arr[mid]==arr[mid+1])
+            low=mid+2;
+            else
+            high=mid;
+        }
+        else
+        {
+            if(arr[mid]==arr[mid-1])
+            low=mid+1;
+            else
+            high=mid-1;
+        }
+    }
+    return -1;
+}
+using namespace std;
+int main() {
+    int n;
+    cout<<"Enter the size of the array"<<endl;
+    cin>>n;
+    int arr[n];
+    cout<<"Enter the elements in the array"<<endl;
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+   int ans=findoddelement(arr,n);
+    if(ans!=-1)
+    cout<<"required odd element is "<<ans;
+    else
+    cout<<"No odd element found"<<endl;
+    return 0;
+}
