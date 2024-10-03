@@ -34,17 +34,15 @@ CODE-------------------------------------------------------->>>>>>>>>>>>>>>>>
 using namespace std;
 void printarray(int arr[],int n)
 {
- int min_ele=arr[0];
- int count=1;
- for(int i=1;i<n;i++)
+ int min_ele=INT_MIN;
+ int count=0;
+ for(int i=0;i<n;i++)
  {
      if(arr[i]>min_ele)
      {
          count++;
          min_ele=arr[i];
      }
-     else
-     min_ele=arr[i];
  }
  cout<<"required count is "<<count;
 }
